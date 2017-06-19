@@ -6,6 +6,7 @@ import {UtilsModule} from '../shared/utils/utils.module';
 import {CharacterListComponent} from './character-list.component';
 import {FormsModule} from '@angular/forms';
 import {MdCheckboxModule, MdGridListModule} from "@angular/material";
+import {CharacterService} from "./character.service";
 
 @NgModule({
   imports: [
@@ -20,6 +21,9 @@ import {MdCheckboxModule, MdGridListModule} from "@angular/material";
   ],
   exports: [
     CharacterListComponent
+  ],
+  providers: [
+    CharacterService
   ]
 })
 export class CharacterListModule {

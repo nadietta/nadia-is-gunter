@@ -27,7 +27,7 @@
       <p [ngClass]="['bold-text','red-text']">{{characterTitle | uppercase}}</p>
       <ul>
         <ng-container *ngFor="let filter of filters">
-          <li *ngIf="findIfFilterIsChecked(filter.fieldName)" myHighlight="" [highlightMe]="filter.highlighted" [highlightColour]="''">
+          <li *ngIf="findIfFilterIsChecked(filter.fieldName)" myHighlight="" [highlightMe]="filter.highlighted" [highlightColour]="'lightgreen'">
             <b>{{filter.fieldName | capitalize}}:</b>
             {{filter.currencyPipe ? (selectedCharacter[filter.fieldName] | currency:'EUR':true) :
             selectedCharacter[filter.fieldName]}}

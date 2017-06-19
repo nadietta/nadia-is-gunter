@@ -1,22 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import {CHARACTERS} from './characters';
-import {CHARACTERS_DETAILS} from './characters-details';
 import {CharacterDetail} from './character-detail';
 import {isUndefined} from 'util';
+import {Character} from "./character";
+
+import {CharacterService} from "./character.service";
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html'
 })
 export class CharacterListComponent implements OnInit {
-  // myCharacters: any;
-  // myCharactersDetails: any;
-  myCharacters = CHARACTERS;
-  myCharactersDetails = CHARACTERS_DETAILS;
+  myCharacters: Character[];
+  myCharactersDetails: CharacterDetail[];
+
   characterSelector: number;
   selectedCharacter: CharacterDetail;
 
-  characterTitle = 'dettagli Pesonaggio';
+  characterTitle = 'dettagli personaggio';
   filterTitle = 'filtri';
 
   nameString = 'name';
@@ -30,13 +30,13 @@ export class CharacterListComponent implements OnInit {
     {
       fieldName: this.nameString,
       checked: true,
-      highlighted: true,
+      highlighted: false,
       currencyPipe: false
     },
     {
       fieldName: this.surnameString,
       checked: true,
-      highlighted: false,
+      highlighted: true,
       currencyPipe: false
     },
     {
@@ -65,8 +65,7 @@ export class CharacterListComponent implements OnInit {
     },
   ];
 
-  // constructor(private nadiaService: NadiaService) {
-  constructor() {
+  constructor(private characterService: CharacterService) {
   }
 
   characterSelected(val: number) {
@@ -94,7 +93,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.myCharactersDetails = this.nadiaService.fetch('characterDetails'); // returns a promise
-    // this.myCharacters = this.nadiaService.fetch('character');
+    this.myCharacters = this.characterService.getCharacters();
+    this.myCharactersDetails = this.characterService.getCharactersDetails();
   }
 }
