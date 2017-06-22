@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 .bold-text {
   font-weight: bold;
 }
@@ -10,4 +9,8 @@
 
 .checkboxList {
   list-style: none;
+}
+
+.alittlestyle {
+  padding: 10px;
 }

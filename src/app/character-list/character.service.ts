@@ -6,11 +6,24 @@ import {CHARACTERS_DETAILS} from "./mock-characters-details";
 
 @Injectable()
 export class CharacterService {
-  getCharacters(): Character[] {
-    return CHARACTERS
-  };
 
-  getCharactersDetails(): CharacterDetail[] {
-    return CHARACTERS_DETAILS
+  public getCharacters(): Promise<Character[]> {
+    return new Promise(
+      resolve => {
+        setTimeout(() => resolve(CHARACTERS), 2000);
+      }
+    )
+  }
+
+  public static getCharactersDetails(): Promise<CharacterDetail[]> {
+    return Promise.resolve(CHARACTERS_DETAILS)
+  }
+
+  public getCharactersDetailsSlowly(): Promise<CharacterDetail[]> {
+    return new Promise(
+      resolve => {
+        setTimeout(() => resolve(CHARACTERS_DETAILS), 5000);
+      }
+    )
   }
 }

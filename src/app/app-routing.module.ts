@@ -2,6 +2,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {CustomListComponent} from "./custom-list/custom-list.component";
 import {NgModule} from "@angular/core";
 import {CharacterListComponent} from "./character-list/character-list.component";
+import {RolesComponent} from "./roles/roles.component";
 
 const appRoutes: Routes = [
   {
@@ -9,10 +10,15 @@ const appRoutes: Routes = [
     component: CustomListComponent
   },
   {
-    path: 'character',
+    path: 'characters',
     component: CharacterListComponent
   },
-  { path: '',
+  {
+    path: 'roles',
+    component: RolesComponent
+  },
+  {
+    path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   }

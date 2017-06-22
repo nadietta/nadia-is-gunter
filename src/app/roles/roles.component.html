@@ -1,0 +1,41 @@
+<div class="row alittlestyle">
+  <div class="col-md-12">
+    <p>{{title | uppercase}}</p>
+  </div>
+</div>
+
+<div class="row alittlestyle">
+  <div class="col-md-3">
+    <select id="roles" name="roles" [(ngModel)]="roleSelector" (ngModelChange)="selectRole(roleSelector)">
+      <option value=""></option>
+      <option *ngFor="let role of fetchedRoles" [value]="role.id" [selected]="roleSelector === role.id">{{role.role |
+        capitalize}}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-1">
+    <div *ngIf="roleSelected; else noRoleSelected">{{roleSelected.role | capitalize}}</div>
+    <ng-template #noRoleSelected>No Role Selected</ng-template>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <button type="button" class="btn btn-default" (click)="addRole(roleSelected)">Aggiungi</button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-default" (click)="clearRoles()">Pulisci</button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-default" (click)="findRoles()">Cerca</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    Selezionati:
+    <ul>
+      <li *ngFor="let role of rolesSelected">{{role.role | capitalize}}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+

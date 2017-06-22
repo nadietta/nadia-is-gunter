@@ -8,6 +8,7 @@ import {AppRoutingModule} from "./app-routing.module"
 import {CustomListModule} from './custom-list/custom-list.module';
 import {CharacterListModule} from './character-list/character-list.module';
 import {FormsModule} from "@angular/forms";
+import {RolesModule} from "./roles/roles.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     CustomListModule,
     CharacterListModule,
-    FormsModule
+    FormsModule,
+    RolesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
